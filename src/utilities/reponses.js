@@ -1,3 +1,5 @@
+const { validationResult } = require("express-validator")
+
 exports.blankSuccess = (res) => {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
     return res.end(JSON.stringify({ error: null }))
@@ -18,12 +20,16 @@ exports.serverError = (res, err) => {
     return res.end(JSON.stringify({ error: err }))
 }
 
-exports.validatonError = (res, err) => {
-    res.writeHead(406, { 'Content-Type': 'application/json; charset=utf-8' })
-    return res.end(JSON.stringify({ error: err }))
-}
-
 exports.unauthorizedError = (res, err) => {
     res.writeHead(401, { 'Content-Type': 'application/json; charset=utf-8' })
     return res.end(JSON.stringify({ error: err }))
+}
+
+exports.validationError = (req, res, next) => {
+    const err = validationResult(req)
+    if (!err.isEmpty()) {
+        res.writeHead(406, { 'Content-Type': 'application/json; charset=utf-8' })
+        return res.end(JSON.stringify({ error: err }))
+    }
+    next()
 }

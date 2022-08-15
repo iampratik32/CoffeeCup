@@ -6,11 +6,12 @@ require('dotenv').config({ encoding: 'latin1' })
 const port = process.env.APP_PORT
 const db = require('./src/config/db')
 const path = require('path')
-const apiRoutes = require('./src/routes/api')()
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const helmet = require('helmet')
 const user = require('./src/models/StoreCoffee')
+const apiRoutes = require('./src/routes/api')()
+const adminRoutes = require('./src/routes/admin')()
 
 app.use(
     helmet({
@@ -26,6 +27,7 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, './views'))
 
 app.use('/api', apiRoutes)
+app.use('/api/admin', adminRoutes)
 
 if (cluster.isMaster) {
     for (let i = 0; i < os.cpus().length; i++) {
