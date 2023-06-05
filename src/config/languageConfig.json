@@ -7,7 +7,13 @@
         "NAME_EMPTY": "The Name of The User Cannot Be Empty.",
         "NAME_VALID": "Please Enter A Valid Name For The User.",
         "PHONE_EMPTY": "The Phone Number Cannot Be Empty.",
-        "PHONE_VALID": "Please Enter A Valid Phone Number."
+        "PHONE_VALID": "Please Enter A Valid Phone Number.",
+        "COFFEE_TYPE_EMPTY": "The Type of Coffe Cannot Be Empty.",
+        "COFFEE_TYPE_IMAGE_EMPTY": "The Image for Coffee Type Cannot be Empty.",
+        "COFFEE_TYPE_ENABLE_EMPTY": "The Enability for this Coffee Type Cannot Be Empty.",
+        "COFFEE_TYPE_ENABLE_VALID": "Please Enter A Valid Value For Coffee Type Enability.",
+        "ENTER_VALID_IMAGE": "Please Enter a Valid Image.",
+        "COFFEE_TYPE_NOT_FOUND": "The Coffee Type With This Identificaiton Cannot Be Found."
     },
     "FRENCH": {
         "EMAIL_EMPTY": "L'adresse e-mail ne peut pas être vide.",

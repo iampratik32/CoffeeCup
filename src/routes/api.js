@@ -11,8 +11,8 @@ const AuthValidator = require('../middlewares/validators/AuthValidator')
 module.exports = () => {
     routes.get(BASE, ApiController.index)
 
-    routes.post(REGISTER, AuthValidator.register, RegisterController.store)
-    routes.post(LOGIN, AuthValidator.login, LoginController.login)
+    // routes.post(REGISTER, AuthValidator.register, RegisterController.store)
+    // routes.post(LOGIN, AuthValidator.login, LoginController.login)
 
     return routes
 }

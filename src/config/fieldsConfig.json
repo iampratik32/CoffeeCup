@@ -1,6 +1,9 @@
 {
-    "EMAIL": "Email",
-    "PASSWORD": "Password",
-    "NAME": "Name",
-    "PHONE": "Phone"
+    "EMAIL": "email",
+    "PASSWORD": "password",
+    "NAME": "name",
+    "PHONE": "phone",
+    "TYPE": "type",
+    "IS_ENABLED": "isEnabled",
+    "IMAGE": "image"
 }

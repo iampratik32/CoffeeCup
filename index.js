@@ -10,8 +10,8 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const helmet = require('helmet')
 const user = require('./src/models/StoreCoffee')
-const apiRoutes = require('./src/routes/api')()
-const adminRoutes = require('./src/routes/admin')()
+const apiRoutes = require('./src/routes/api')
+const adminRoutes = require('./src/routes/admin')
 
 app.use(
     helmet({
@@ -26,15 +26,17 @@ app.use(express.static(path.join(__dirname, './src/public')))
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, './views'))
 
-app.use('/api', apiRoutes)
-app.use('/api/admin', adminRoutes)
+app.use('/api', apiRoutes())
+app.use('/api/admin', adminRoutes())
 
-if (cluster.isMaster) {
-    for (let i = 0; i < os.cpus().length; i++) {
-        cluster.fork()
-    }
-    cluster.on('exit', (worker, code, signal) => {
-        cluster.fork()
-    })
-}
-else app.listen(port, () => console.log(`Server - ${process.pid} http://localhost:${port}`))
+app.listen(port, ()=> console.log(`Server Running on ${port}`))
+
+// if (cluster.isMaster) {
+//     for (let i = 0; i < os.cpus().length; i++) {
+//         cluster.fork()
+//     }
+//     cluster.on('exit', (worker, code, signal) => {
+//         cluster.fork()
+//     })
+// }
+// else app.listen(port, () => console.log(`Server - ${process.pid} http://localhost:${port}`))
