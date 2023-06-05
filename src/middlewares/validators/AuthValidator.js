@@ -10,11 +10,21 @@ exports.register = [
         .isAlpha().withMessage(lang.NAME_VALID).bail(),
     check(PHONE).notEmpty().withMessage(lang.PHONE_EMPTY).bail()
         .custom(val => {
-           // TODO:: Validate International Phone Number
-           return true
+            // TODO:: Validate International Phone Number
+            return true
         }).withMessage(lang.PHONE_VALID).bail(),
 
-    (req, res, next) => {
-        error(req, res, next)
-    }
+    (req, res, next) => error(req, res, next)
+]
+
+exports.login = [
+    check(PHONE).notEmpty().withMessage(lang.PHONE_EMPTY).bail()
+        .custom(val => {
+            // TODO:: Validate International Phone Number
+            return true
+        }).withMessage(lang.PHONE_VALID).bail(),
+    check(PASSWORD).notEmpty().withMessage(lang.PASSWORD_EMPTY).bail()
+        .isLength({ max: 20, min: 8 }).withMessage(lang.PASSWORD_LENGTH).bail(),
+
+    (req, res, next) => error(req, res, next)
 ]
