@@ -1,7 +1,7 @@
 const { STRING } = require('sequelize')
 const db = require('../config/db')
 const { BOOLEAN } = require('sequelize')
-const { serverError, dataSuccess, blankSuccess } = require('../utilities/reponses')
+const { serverError, dataSuccess, blankSuccess, notFoundError } = require('../utilities/reponses')
 const randomstring = require('randomstring')
 
 const CoffeeType = db.define('CoffeeType', {
@@ -44,8 +44,13 @@ const storeCoffeeType = async (res, coffeeType) => {
     return await CoffeeType.build(coffeeType).save().catch(err => serverError(res, err))
 }
 
-const deleteCoffeeType = async (res, uId) => {
-
+const updateCoffeeType = async (res, coffeeType) => {
+    return await coffeeType.save().catch(err => serverError(res, err))
 }
 
-module.exports = { CoffeeType, getAllCoffeeTypes, getCoffeeTypeByStatus, storeCoffeeType, getCoffeeType, deleteCoffeeType }
+const deleteCoffeeType = async (res, uId) => {
+    let coffeeType = await getCoffeeType(res, uId)
+    return await coffeeType.destroy().catch(err => serverError(res, err))
+}
+
+module.exports = { CoffeeType, getAllCoffeeTypes, getCoffeeTypeByStatus, storeCoffeeType, getCoffeeType, updateCoffeeType, deleteCoffeeType }

@@ -13,7 +13,9 @@
         "COFFEE_TYPE_ENABLE_EMPTY": "The Enability for this Coffee Type Cannot Be Empty.",
         "COFFEE_TYPE_ENABLE_VALID": "Please Enter A Valid Value For Coffee Type Enability.",
         "ENTER_VALID_IMAGE": "Please Enter a Valid Image.",
-        "COFFEE_TYPE_NOT_FOUND": "The Coffee Type With This Identificaiton Cannot Be Found."
+        "COFFEE_TYPE_NOT_FOUND": "The Coffee Type With This Identificaiton Cannot Be Found.",
+        "UID_NOT_EMPTY": "The Unique Identification Cannot Be Empty.",
+        "UID_NOT_FOUND": "This Unique Identification Cannot Be Found."
     },
     "FRENCH": {
         "EMAIL_EMPTY": "L'adresse e-mail ne peut pas être vide.",

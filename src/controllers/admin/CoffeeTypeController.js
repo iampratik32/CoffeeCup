@@ -1,5 +1,5 @@
 const { lang } = require("../../middlewares/validators/helper/imports")
-const { CoffeeType, getAllCoffeeTypes, getCoffeeTypeByStatus, storeCoffeeType, getCoffeeType, deleteCoffeeType } = require("../../models/CoffeeType")
+const { CoffeeType, getAllCoffeeTypes, getCoffeeTypeByStatus, storeCoffeeType, getCoffeeType, deleteCoffeeType, updateCoffeeType } = require("../../models/CoffeeType")
 const { dataSuccess, blankSuccess, serverError, notFoundError } = require("../../utilities/reponses")
 
 exports.index = async (req, res) => {
@@ -22,5 +22,13 @@ exports.show = async (req, res) => {
 
 
 exports.store = (req, res) => {
-    storeCoffeeType(res, req.body).then((v) => dataSuccess(res, v))
+    storeCoffeeType(res, req.body).then(v => dataSuccess(res, v))
+}
+
+exports.update = (req, res) => {
+    updateCoffeeType(res, req.body).then(v => dataSuccess(res, v))
+}
+
+exports.destroy = (req, res) => {
+    deleteCoffeeType(res, req.body.uId).then(v => dataSuccess(res, v))
 }

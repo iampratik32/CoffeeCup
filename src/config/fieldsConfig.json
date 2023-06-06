@@ -4,6 +4,7 @@
     "NAME": "name",
     "PHONE": "phone",
     "TYPE": "type",
+    "UID": "uId",
     "IS_ENABLED": "isEnabled",
     "IMAGE": "image"
 }
